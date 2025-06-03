@@ -1,0 +1,9 @@
+services:
+  server1-i4d:
+    image: alpine
+    command: sh -c "apk add --no-cache openssh python3 py3-pip && echo 'root:P@ssw0rd1' | chpasswd && ssh-keygen -A && /usr/sbin/sshd && tail -f /dev/null"
+    container_name: server1-i4d
+    ports:
+      - 2200:22
+    volumes:
+      - "./server1:/server1"
